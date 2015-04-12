@@ -80,17 +80,18 @@
 <script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerMenu.js"></script>
 <script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerMenuBar.js"></script>
 
-    <script>
-	  $(function(){
-        $("#layout1").ligerLayout({
-          leftWidth: 190,
-          height: '100%',
-          heightDiff: -34,
-          space: 4, 
-          onHeightChanged: function(){
-            console.log(121);
-          }
-        });
+	<script>
+		$(function(){
+			$("#layout1").ligerLayout({
+				leftWidth: 190,
+				centerBottomHeight: 180,
+				height: '100%',
+				heightDiff: -34,
+				space: 4,
+				onHeightChanged: function(){
+					console.log(121);
+				}
+			});
 
 		function itemClick(){
 			// TODO
