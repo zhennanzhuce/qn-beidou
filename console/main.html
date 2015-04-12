@@ -8,9 +8,120 @@
   <META NAME="Author" CONTENT="">
   <META NAME="Keywords" CONTENT="">
   <META NAME="Description" CONTENT="">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/skins/Aqua/css/ligerui-all.css" />
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/skins/ligerui-icons.css" />
+  <style>
+    #pageloading{
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  background: white url('http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/skins/Aqua/images/common/bigloading.gif') no-repeat center;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 99999;
+	}
+	body {
+	  padding: 5px;
+	  margin: 0;
+	  background: #EAEEF5;
+	}
+	#layout1 {
+	  width: 100%;
+	  margin: 0 auto;
+	  padding: 0;
+	}
+	#footer1 {
+	  height: 32px;
+      line-height: 32px;
+	  text-align: center;
+	}
+	#topmenu {
+	  height: 22px;
+	  margin-bottom: 5px;
+	  padding-top: 2px;
+	  margin-top: -5px;
+	  margin-left: -5px;
+	  margin-right: -5px;
+	}
+  </style>
  </HEAD>
 
- <BODY>
-  
- </BODY>
+  <BODY>
+    <div id="pageloading"></div>
+	<div id="topmenu"></div>
+    <div id="layout1">
+      <div position="left" title="主菜单" id="accordion1">
+      </div>
+	  <div position="center" title="标题">
+                
+      </div> 
+      <div position="centerbottom" title="下方区域">
+	    中间下方区域
+      </div> 
+    </div>    
+
+	<div id='footer1'>
+      Copyright © 2014-2015 <a href="http://www.hnqnkj.com" target="_blank">河南省全能科技有限公司</a>
+    </div>
+
+<script type='text/javascript' src='http://127.0.0.1/js/jquery/2.0.2/jquery.min.js?v2.0.2'></script>
+<script type='text/javascript' src='http://127.0.0.1/js/underscore/1.5.1/underscore.min.js'></script>
+
+<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/core/base.js"></script>
+
+<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/ligerui.all.js"></script> 
+<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerTab.js"></script>
+
+<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerMenu.js"></script>
+<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerMenuBar.js"></script>
+
+    <script>
+	  $(function(){
+        $("#layout1").ligerLayout({
+          leftWidth: 190,
+          height: '100%',
+          heightDiff: -34,
+          space: 4, 
+          onHeightChanged: function(){
+            console.log(121);
+          }
+        });
+
+		function itemClick(){
+			// TODO
+		}
+
+		var menu1 = {
+			width: 120,
+			items: [
+				{ text: '保存', click: itemClick },
+				{ text: '列存为', click: itemClick },
+				{ line: true },
+				{ text: '关闭', click: itemClick }
+			]
+		};
+		
+		$("#topmenu").ligerMenuBar({
+			items: [{
+				text: '文件',
+				menu: menu1
+			}, { 
+				text: '电子地图',
+				menu: {
+					width: 120,
+					items: [{
+						text: '百度地图'
+					}, {
+						line: !0
+					}, {
+						text: '谷歌地图'
+					}]
+				}
+			}]
+		});
+
+        $("#pageloading").hide();
+      });
+    </script>
+  </BODY>
 </HTML>
