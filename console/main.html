@@ -57,9 +57,15 @@
     <div id="layout1">
       <div position="left" title="主菜单" id="accordion1">
       </div>
-	  <div position="center" title="百度地图">
-	    <iframe id='ifrmap' src="baidu_map.html"></iframe>
-      </div> 
+
+		<div position="center" id="framecenter">
+			<div tabid="map" title="百度地图">
+				<iframe id='ifrmap' src="baidu_map.html"></iframe>
+			</div>
+			<div tabid="monitor" title="视频监控">
+			</div>
+		</div>
+
       <div position="centerbottom" title="下方区域">
 	    中间下方区域
       </div> 
@@ -73,10 +79,9 @@
 <script type='text/javascript' src='http://127.0.0.1/js/underscore/1.5.1/underscore.min.js'></script>
 
 <script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/core/base.js"></script>
-
 <script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/ligerui.all.js"></script> 
-<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerTab.js"></script>
 
+<script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerTab.js"></script>
 <script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerMenu.js"></script>
 <script type="text/javascript" src="http://127.0.0.1/js/ligerui/1.2.5/Source/lib/ligerUI/js/plugins/ligerMenuBar.js"></script>
 
@@ -89,7 +94,7 @@
 				heightDiff: -34,
 				space: 4,
 				onHeightChanged: function(){
-					console.log(121);
+					// TODO
 				}
 			});
 
@@ -97,20 +102,24 @@
 			// TODO
 		}
 
-		var menu1 = {
-			width: 120,
-			items: [
-				{ text: '保存', click: itemClick },
-				{ text: '列存为', click: itemClick },
-				{ line: true },
-				{ text: '关闭', click: itemClick }
-			]
-		};
-		
 		$("#topmenu").ligerMenuBar({
 			items: [{
 				text: '文件',
-				menu: menu1
+				menu: {
+					width: 120,
+					items: [{
+						text: '保存',
+						click: itemClick
+					}, {
+						text: '列存为',
+						click: itemClick
+					}, {
+						line: true
+					}, {
+						text: '关闭',
+						click: itemClick
+					}]
+				}
 			}, { 
 				text: '电子地图',
 				menu: {
@@ -124,6 +133,14 @@
 					}]
 				}
 			}]
+		});
+
+		var height = $(".l-layout-center").height();
+
+		$("#framecenter").ligerTab({
+			height: height,
+			showSwitchInTab: true,
+			showSwitch: true
 		});
 
         $("#pageloading").hide();
