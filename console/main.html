@@ -55,7 +55,7 @@
     <div id="pageloading"></div>
 	<div id="topmenu"></div>
     <div id="layout1">
-      <div position="left" title="主菜单" id="accordion1">
+      <div position="left" title="车辆列表" id="accordion1">
       </div>
 
 		<div position="center" id="framecenter">
@@ -66,9 +66,26 @@
 			</div>
 		</div>
 
-      <div position="centerbottom" title="下方区域">
-	    中间下方区域
-      </div> 
+		<div position="centerbottom" id='framecenterbottom'>
+			<div tabid="cljk" title="车辆监控">
+			</div>
+			<div tabid="gjhf" title="轨迹回放">
+			</div>
+			<div title="行驶记录仪">
+			</div>
+			<div title="多媒体检索">
+			</div>
+			<div title="查岗报文">
+			</div>
+			<div title="报警督办">
+			</div>
+			<div title="预警">
+			</div>
+			<div title="交换报警信息">
+			</div>
+			<div title="数据交换">
+			</div>
+		</div>
     </div>    
 
 	<div id='footer1'>
@@ -104,7 +121,7 @@
 
 		$("#topmenu").ligerMenuBar({
 			items: [{
-				text: '文件',
+				text: '系统设置',
 				menu: {
 					width: 120,
 					items: [{
@@ -120,6 +137,14 @@
 						click: itemClick
 					}]
 				}
+			}, {
+				text: '管理功能'
+			}, {
+				text: '监控功能'
+			}, {
+				text: '统计分析'
+			}, {
+				text: '业务功能'
 			}, { 
 				text: '电子地图',
 				menu: {
@@ -132,14 +157,20 @@
 						text: '谷歌地图'
 					}]
 				}
+			}, {
+				text: '帮助'
 			}]
 		});
 
 		var height = $(".l-layout-center").height();
 
 		$("#framecenter").ligerTab({
+			height: height
+		});
+
+		$("#framecenterbottom").ligerTab({
 			height: height,
-			showSwitchInTab: !1,
+			showSwitchInTab: !0,
 			showSwitch: true
 		});
 
